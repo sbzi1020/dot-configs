@@ -27,7 +27,8 @@ String value            Help page   Affected modes                              
 local function set_key_mapping(mode, key, mapping_command, opts)
     local options = {noremap = true}
     if opts then options = vim.tbl_extend('force', options, opts) end
-    vim.api.nvim_set_keymap(mode, key, mapping_command, options)
+    --vim.api.nvim_set_keymap(mode, key, mapping_command, options)
+    vim.keymap.set(mode, key, mapping_command, options)
 end
 
 
@@ -83,7 +84,7 @@ set_key_mapping('n', '<leader><leader>', '<c-^>', {silent=true})
 
 
 -- <leader>th: save current file to HTML
-set_key_mapping('n', '<leader>th', ':%TOhtml<CR>')
+--set_key_mapping('n', '<leader>th', ':%TOhtml<CR>')
 
 
 -- <leader>th: save current file to HTML
@@ -122,11 +123,11 @@ set_key_mapping('n', '<leader>ov', ':vsplit<CR>:e $MYVIMRC<CR>')
 --set_key_mapping('n', '<leader>ot', ':vsplit<CR>:e ~/.config/nvim/lua/themes.lua<CR>')
 
 -- Move between windows
-set_key_mapping('n', '<leader>h', ':wincmd h<CR>', {silent=true})
-set_key_mapping('n', '<leader>j', ':wincmd j<CR>', {silent=true})
-set_key_mapping('n', '<leader>k', ':wincmd k<CR>', {silent=true})
-set_key_mapping('n', '<leader>l', ':wincmd l<CR>', {silent=true})
-set_key_mapping('n', '<leader>q', ':wincmd q<CR>', {silent=true})
+--set_key_mapping('n', '<leader>h', ':wincmd h<CR>', {silent=true})
+--set_key_mapping('n', '<leader>j', ':wincmd j<CR>', {silent=true})
+--set_key_mapping('n', '<leader>k', ':wincmd k<CR>', {silent=true})
+--set_key_mapping('n', '<leader>l', ':wincmd l<CR>', {silent=true})
+--set_key_mapping('n', '<leader>q', ':wincmd q<CR>', {silent=true})
 set_key_mapping('n', '<C-h>', ':wincmd h<CR>', {silent=true})
 set_key_mapping('n', '<C-l>', ':wincmd l<CR>', {silent=true})
 
@@ -136,8 +137,8 @@ set_key_mapping('n', '<C-l>', ':wincmd l<CR>', {silent=true})
 
 -- Resize windows
 set_key_mapping('n', '-', ':vertical resize -5<CR>', {silent=true})
-set_key_mapping('n', '+', ':vertical resize +5<CR>', {silent=true})
-set_key_mapping('n', '=', '<C-w>=', {silent=true})
+set_key_mapping('n', '=', ':vertical resize +5<CR>', {silent=true})
+set_key_mapping('n', '|', '<C-w>=', {silent=true})
 
 
 
@@ -437,4 +438,15 @@ set_key_mapping('n', 'mm', 'mM')
 
 -- `gb`: Go back to the global mark
 set_key_mapping('n', 'gb', '`Mzz')
+
+--[[
+-----------------------------------------------------------------------
+Zip fold
+-----------------------------------------------------------------------
+--]]
+-- `<leader>z`: zip fold
+--  close zip fold
+set_key_mapping('n', '<leader>z', 'zo')
+set_key_mapping('n', '<leader><leader>z', 'zc')
+set_key_mapping('v', 'z', 'zf')
 

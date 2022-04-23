@@ -4,23 +4,16 @@
         "body": [
            "import React from 'react'",
            "",
-           "/**",
-           " * @export",
-           " * @interface ${1: Props interface}Props",
-           " */",
-           "export interface ${1: Props interface}Props {",
-           "    classes?: any",
+           "//",
+           "const ${1: ComponentName} = () => {",
+           "    return (",
+           "       <div>",
+           "           $0",
+           "       </div>",
+           "    )",
            "}",
            "",
-           "/**",
-           " * ",
-           " * @param {${1: Props interface}Props} props ",
-           " */",
-           "const ${2: ComponentName} = (props: ${1: Props interface}Props) => {",
-           "    return (<div>$0</div>)",
-           "}",
-           "",
-           "export default React.memo(${2: ComponentName})"
+           "export default React.memo(${1: ComponentName})"
         ]
     },
     "React function component with state": {
@@ -28,31 +21,22 @@
        "body": [
            "import React, { useState, useEffect } from 'react'",
            "",
-           "/**",
-           " * @export",
-           " * @interface ${1: Props interface}Props",
-           " */",
-           "export interface ${1: Props interface}Props {",
-           "    classes?: any",
-           "}",
-           "",
-           "/**",
-           " * ",
-           " * @param {${1: Props interface}}Props props ",
-           " */",
-           "const ${2: ComponentName} = (props: ${1: Props interface}Props) => {",
-           "    const { classes } = props",
-           "",
+           "//",
+           "const ${1: ComponentName} = () => {",
            "    const [state, setState] = useState()",
            "",
            "    useEffect(() => {",
            "        ",
            "    }, [])",
            "",
-           "    return (<div>$0</div>)",
+           "    return (",
+           "       <div>",
+           "           $0",
+           "       </div>",
+           "    )",
            "}",
            "",
-           "export default React.memo(${2: ComponentName})"
+           "export default React.memo(${1: ComponentName})"
        ]
     },
     "Import material styles": {
@@ -267,10 +251,11 @@
             "<input type=\"week\"/>"
         ]
     },
-    "html tag": {
+    "easy tag": {
         "prefix": ["tt"],
         "body": [
             "<$1>",
+            "    $0",
             "</$1>"
         ]
     }

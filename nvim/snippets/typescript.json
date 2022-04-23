@@ -131,7 +131,7 @@
         "prefix": ["ff"],
         "body": [
             "() => {",
-            "    $0",
+            "    return ($0)",
             "}"
         ]
     },
@@ -341,10 +341,11 @@
             "<input type=\"week\"/>"
         ]
     },
-    "html tag": {
+    "easy tag": {
         "prefix": ["tt"],
         "body": [
             "<$1>",
+            "    $0",
             "</$1>"
         ]
     }

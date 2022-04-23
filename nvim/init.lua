@@ -72,7 +72,8 @@ easy manipulation.
 And this module HAS TO be required/loaded AFTER all plugins has been loaded,
 that can make sure the settings will override the default keybindings.
 --]]
-Reload_package 'my_keybindings'
+Reload_package 'my_colemak_keybindings'
+--Reload_package 'my_keybindings'
 
 -- Load pre-defined macros
 Reload_package 'my_macros'

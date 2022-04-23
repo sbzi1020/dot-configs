@@ -1,0 +1,180 @@
+vim.cmd('colorscheme 1989')
+--[[-----------------------------------------------------
+-- Setting
+-- `vim.o` for global options
+-- `vim.bo` for buffer options
+-- `vim.wo` for window options
+--]]---------------------------------------------------
+------------------------------------------------------------
+-- Indent Space
+local indent = 4
+--
+------------------------------------------------------------
+-- Enable hybrid number(Absolute and relative number)
+vim.o.number = true
+vim.o.relativenumber = true
+
+------------------------------------------------------------
+-- Disabe SWAP file: it will automatically add a .swp file for each file you write
+vim.o.swapfile = false
+--
+------------------------------------------------------------
+-- Share system clipboard
+vim.o.clipboard = 'unnamedplus'
+
+------------------------------------------------------------
+-- Allow case-insensitive file searching
+vim.o.ignorecase = true
+vim.o.smartcase = true
+--
+------------------------------------------------------------
+-- Show or disabe a vertical bar to indicate the column limit position
+-- vim.wo.colorcolumn = '80'
+------------------------------------------------------------
+-- Tab Related
+vim.bo.expandtab = true
+vim.bo.shiftwidth = indent
+vim.bo.smartindent = true
+vim.bo.tabstop = indent
+vim.bo.softtabstop = indent
+vim.o.shiftround = true
+--
+------------------------------------------------------------
+-- Tab list invisible characters
+vim.wo.list = true
+--
+------------------------------------------------------------
+-- Redraws and scroll faster
+vim.o.ttyfast = true
+vim.o.lazyredraw = true
+
+------------------------------------------------------------
+-- Enable mouse use in all modes
+vim.o.mouse = 'a'
+
+------------------------------------------------------------
+-- Open vertical split on the right side (Same with your cursor)
+vim.o.splitright = true
+
+------------------------------------------------------------
+-- Scroll off
+vim.o.scrolloff = 10
+
+------------------------------------------------------------
+-- File explore window size
+vim.g.netrw_winsize = 20
+
+------------------------------------------------------------
+-- Enable persistent undo
+vim.cmd('set undofile')
+vim.cmd('set undodir=~/.config/nvim/undo')
+
+------------------------------------------------------------
+-- True color support 
+vim.o.termguicolors = true
+
+------------------------------------------------------------
+-- Enable cursor line
+vim.wo.cursorline = true
+
+-- Enable cursor position line
+vim.wo.cursorlineopt = 'both'
+
+------------------------------------------------------------
+-- Search down all sub-dirs and provide tab completion for all files
+vim.cmd('set path+=**')
+
+------------------------------------------------------------
+-- Enable mouse use in all modes
+vim.cmd('set spell spelllang=en_us')
+
+-- Disable spell checking for some files
+vim.cmd 'autocmd FileType javascript,typescript,rust,typescriptreact,go,lua,tmux,yaml,vim,fish,toml,json,cmake,markdown,css,conf,sh,man setlocal nospell'
+
+-- Disable spell checking for opening terminal
+vim.cmd 'autocmd TermOpen * setlocal nospell'
+
+------------------------------------------------------------
+-- Enable highlight when yanked
+vim.cmd [[
+    augroup highlight_yank
+        autocmd!
+        au TextYankPost * silent! lua vim.highlight.on_yank { higroup='IncSearch', timeout=300 }
+    augroup END
+]]
+
+
+
+--[[-----------------------------------------------------
+-- <learder> Setting
+--]]-----------------------------------------------------
+local opts = {noremap = true}
+local opts_with_silent = {noremap = true, silent = true}
+
+-- Leader Key: <Space>
+vim.api.nvim_set_keymap('n', '<Space>', '<NOP>', opts_with_silent)
+vim.g.mapleader = ' '
+
+
+--[[-----------------------------------------------------
+-- My telescope setting
+--]]-----------------------------------------------------
+require('plugins')
+require('my_telescope')
+
+
+
+
+
+--[[-----------------------------------------------------
+-- keybindings module
+--]]-----------------------------------------------------
+
+------------------------------------------------
+-- Reload `init.lua`
+------------------------------------------------
+vim.api.nvim_set_keymap('n', '<leader>rr', ':luafile ~/.config/nvim/init.lua<CR>:setlocal nospell<CR>', opts)
+
+------------------------------------------------
+-- Toggle left-side explore
+------------------------------------------------
+vim.api.nvim_set_keymap('n', '<leader>e', ':lexplore', opts)
+
+------------------------------------------------
+-- Normal Setu
+------------------------------------------------
+-- jj: <ESC> `insert` mode
+vim.api.nvim_set_keymap('i', 'jj', '<ESC>', opts)
+
+-- W: save file
+vim.api.nvim_set_keymap('n', 'W', ':w<CR>', opts)
+-- Q: save & quit file
+vim.api.nvim_set_keymap('n', 'Q', ':wq<CR>', opts)
+
+------------------------------------------------
+-- Window Setup
+------------------------------------------------
+-- Vertical split
+vim.api.nvim_set_keymap('n', '<leader>vs', ':vsplit<CR>:e $MYVIMRC<CR>', opts)
+-- Move between windows
+vim.api.nvim_set_keymap('n', '<C-h>', ':wincmd h<CR>', opts_with_silent)
+vim.api.nvim_set_keymap('n', '<C-l>', ':wincmd l<CR>', opts_with_silent)
+-- Resize windows
+vim.api.nvim_set_keymap('n', '-', ':vertical resize -5<CR>', opts_with_silent)
+vim.api.nvim_set_keymap('n', '=', ':vertical resize +5<CR>', opts_with_silent)
+
+------------------------------------------------
+-- Block and Line Movement
+------------------------------------------------
+vim.api.nvim_set_keymap('v', 'J', ":m '>+1<CR>gv=gv", opts)
+vim.api.nvim_set_keymap('v', 'K', ":m '>-2<CR>gv=gv", opts)
+vim.api.nvim_set_keymap('v', '<', "<gv", opts)
+vim.api.nvim_set_keymap('v', '>', ">gv", opts)
+
+------------------------------------------------
+-- Buffer
+------------------------------------------------
+-- <leader><leader>: toggles between buffers
+vim.api.nvim_set_keymap('n', '<leader><leader>','<c-^>', opts_with_silent)
+
+

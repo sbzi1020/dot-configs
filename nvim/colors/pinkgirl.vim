@@ -128,7 +128,8 @@ hi SpellRare guifg=#fcf6bd ctermfg=80 guibg=#23211b ctermbg=235 gui=underline ct
 
 " --------------------------------------------------------
 " Status line
-hi StatusLine guifg=#fcf6bd ctermfg=80 guibg=#616e88 ctermbg=60 gui=NONE cterm=NONE
+" hi StatusLine guifg=#fcf6bd ctermfg=80 guibg=#616e88 ctermbg=60 gui=NONE cterm=NONE
+hi StatusLine guibg=#00000000
 hi StatusLineNC guifg=#fcf6bd ctermfg=80 guibg=#616e88 ctermbg=60 gui=NONE cterm=NONE
 hi StatusLineTerm guifg=#ff99c8 ctermfg=195 guibg=#616e88 ctermbg=60 gui=NONE cterm=NONE
 hi StatusLineTermNC guifg=#fcf6bd ctermfg=80 guibg=#616e88 ctermbg=60 gui=NONE cterm=NONE

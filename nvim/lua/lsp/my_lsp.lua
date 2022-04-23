@@ -491,9 +491,11 @@ cmp.setup({
     -- },
 
     -- Floating document window use rounded border
-    documentation = {
-        border = { "╭", "─", "╮", "│", "╯", "─", "╰", "│" },
-    },
+    window = {
+        documentation = {
+            border = { "╭", "─", "╮", "│", "╯", "─", "╰", "│" },
+        },
+    }
 })
 
 --

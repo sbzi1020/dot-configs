@@ -107,7 +107,7 @@ hi EndOfBuffer guifg=#616e88 ctermfg=60 guibg=NONE ctermbg=NONE gui=NONE cterm=N
 hi ModeMsg guifg=#adf7b6 ctermfg=80 guibg=NONE ctermbg=NONE gui=NONE cterm=NONE
 hi MoreMsg guifg=#ffc09f ctermfg=195 guibg=NONE ctermbg=NONE gui=NONE cterm=NONE
 hi Question guifg=#adf7b6 ctermfg=80 guibg=NONE ctermbg=NONE gui=NONE cterm=NONE
-hi StatusLine guifg=#adf7b6 ctermfg=80 guibg=#616e88 ctermbg=60 gui=NONE cterm=NONE
+hi StatusLine guibg=#00000000
 hi StatusLineNC guifg=#adf7b6 ctermfg=80 guibg=#616e88 ctermbg=60 gui=NONE cterm=NONE
 hi StatusLineTerm guifg=#ffc09f ctermfg=195 guibg=#616e88 ctermbg=60 gui=NONE cterm=NONE
 hi StatusLineTermNC guifg=#adf7b6 ctermfg=80 guibg=#616e88 ctermbg=60 gui=NONE cterm=NONE
