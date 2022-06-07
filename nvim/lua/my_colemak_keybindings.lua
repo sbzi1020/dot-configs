@@ -30,10 +30,19 @@ set_key_mapping('n', 'n', 'j', { noremap=true, silent=true })
 set_key_mapping('n', 'e', 'k', { noremap=true, silent=true })
 set_key_mapping('n', 'i', 'l', { noremap=true, silent=true })
 
+set_key_mapping('v', 'm', 'h', { noremap=true, silent=true })
+set_key_mapping('v', 'n', 'j', { noremap=true, silent=true })
+set_key_mapping('v', 'e', 'k', { noremap=true, silent=true })
+set_key_mapping('v', 'i', 'l', { noremap=true, silent=true })
+
 
 -- Edit
 set_key_mapping('n', 'L', 'I', { noremap=true, silent=true })
 set_key_mapping('n', 'l', 'i', { noremap=true, silent=true })
+-- Jump position
+set_key_mapping('n', 'J', '<c-u>', { noremap=true, silent=true })
+set_key_mapping('n', 'K', '<c-d>', { noremap=true, silent=true })
+set_key_mapping('n', 'M', '%', { noremap=true, silent=true })
 
 
 --[[
@@ -86,14 +95,14 @@ Split & window movement
 -- Vertical split
 set_key_mapping('n', '<leader>vs', ':vsplit<CR>')
 
-set_key_mapping('n', '<C-m>', ':wincmd h<CR>', {silent=true})
-set_key_mapping('n', '<C-i>', ':wincmd l<CR>', {silent=true})
+set_key_mapping('n', '<leader>m', ':wincmd h<CR>', {silent=true})
+set_key_mapping('n', '<leader>i', ':wincmd l<CR>', {silent=true})
 
 -- Can't use '<c-j>' and '<c-k>', as already used for ':cnext<CR>' and ':cNext<CR>'
 -- set_key_mapping('n', '<C-j>', ':wincmd j<CR>', {silent=true})
 -- set_key_mapping('n', '<C-k>', ':wincmd k<CR>', {silent=true})
 
--- Resize windows
+-- Resize window
 set_key_mapping('n', '-', ':vertical resize -5<CR>', {silent=true})
 set_key_mapping('n', '=', ':vertical resize +5<CR>', {silent=true})
 set_key_mapping('n', '|', '<C-w>=', {silent=true})
@@ -117,6 +126,10 @@ set_key_mapping('v', 'N', ":m '>+1<CR>gv=gv")
 set_key_mapping('v', 'E', ":m '<-2<CR>gv=gv")
 set_key_mapping('v', '<', '<gv')
 set_key_mapping('v', '>', '>gv')
+
+set_key_mapping('v', '<leader>;', ':normal A;<ESC>')
+set_key_mapping('v', '<leader>--', ':normal A"<ESC>')
+set_key_mapping('v', '<leader>/', ':CommentToggle<CR>')
 
 
 --[[
@@ -149,8 +162,8 @@ set_key_mapping('n', '<leader>n', ':nohl<CR>')
 
 -- Search results center jump
 set_key_mapping('n', 'N', '<NOP>')
-set_key_mapping('n', 'k', 'nzz')
-set_key_mapping('n', 'K', 'Nzz')
+set_key_mapping('n', 'h', 'nzz')
+set_key_mapping('n', 'H', 'Nzz')
 
 -- Snippets (suggestion list) navigation by `ctrl+j` and `ctrl+k`
 set_key_mapping('i', '<c-e>', '<c-p>')
